@@ -668,7 +668,9 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
             UIViewController *topViewController = controller.presentingViewController.presentingViewController;
             [topViewController dismissViewControllerAnimated:YES completion:completion];
         } else {
-            UIViewController *topViewController = controller.presentingViewController;
+            // FIX: On landing on camera from retake app freezes so closing camera for now
+            UIViewController *topViewController = controller.presentingViewController.presentingViewController;
+            // UIViewController *topViewController = controller.presentingViewController;
             [topViewController dismissViewControllerAnimated:YES completion:completion];
         }
     } else {
