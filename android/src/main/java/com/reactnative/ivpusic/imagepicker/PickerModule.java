@@ -673,18 +673,15 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
 
     @Override
     public void onActivityResult(Activity activity, final int requestCode, final int resultCode, final Intent data) {
-        if(this.onActivityResultStatus>0) {
-        this.onActivityResultStatus=0;
-
-            if (requestCode == IMAGE_PICKER_REQUEST) {
-                imagePickerResult(activity, requestCode, resultCode, data);
-            } else if (requestCode == CAMERA_PICKER_REQUEST) {
-                cameraPickerResult(activity, requestCode, resultCode, data);
-            } else if (requestCode == UCrop.REQUEST_CROP) {
-                croppingResult(activity, requestCode, resultCode, data);
-            }
+        if (requestCode == IMAGE_PICKER_REQUEST) {
+            imagePickerResult(activity, requestCode, resultCode, data);
+        } else if (requestCode == CAMERA_PICKER_REQUEST) {
+            cameraPickerResult(activity, requestCode, resultCode, data);
+        } else if (requestCode == UCrop.REQUEST_CROP) {
+            croppingResult(activity, requestCode, resultCode, data);
         }
     }
+
 
     @Override
     public void onNewIntent(Intent intent) {
